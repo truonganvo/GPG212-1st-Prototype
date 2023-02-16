@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TriggerSound : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip sound;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sound;
     private bool hasTriggered = false;
 
     private void OnTriggerEnter(Collider other)

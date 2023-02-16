@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Testing : MonoBehaviour
 {
-    public AudioSource testing;
-    public float timing;
-    public float time = 0;
+    [SerializeField] AudioSource testing;
+    [SerializeField] float timing;
+    [SerializeField] float time = 0;
 
     private bool Triggered = false;
     [SerializeField] Canvas canvas;
+    [SerializeField] GameObject subtitle;
+
 
 
 
@@ -23,6 +25,7 @@ public class Testing : MonoBehaviour
                 canvas.enabled = true;
                 testing.Play();
                 Triggered= true;
+                subtitle.SetActive(true);
             }
         }
     }
@@ -32,6 +35,11 @@ public class Testing : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canvas.enabled = false;
+            if (subtitle.activeSelf == true)
+            {
+                subtitle.SetActive(false);
+            }
+
         }
     }
 }
